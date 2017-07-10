@@ -1,0 +1,4 @@
+*.pyc
+env/
+secrets.py
+huis/settings_local.py
