@@ -116,7 +116,7 @@ class Woning(models.Model):
     u_r_l = models.CharField(max_length=255)
     verkoop_status = models.CharField(max_length=255)
     verwarming = models.CharField(max_length=255)
-    volledige_omschrijving = models.CharField(max_length=255)
+    volledige_omschrijving = models.TextField()
     voorzieningen = models.CharField(max_length=255)
     warm_water = models.CharField(max_length=255)
     woonplaats = models.CharField(max_length=255)
