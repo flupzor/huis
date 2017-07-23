@@ -13,7 +13,7 @@ class WoningAdmin(CompareVersionAdmin):
     list_filter = ('verkoop_status', 'eigendoms_situatie')
     list_display = (
         'adres', 'get_url_display', 'koopprijs', 'verkoop_status', 'cv',
-        'oppervlakte', 'perceeloppervlakte', 'postcode')
+        'oppervlakte', 'perceeloppervlakte', 'postcode', 'notes', 'interessant')
     list_editable = ('notes', 'interessant')
 
     def get_fieldsets(self, request, obj=None):
