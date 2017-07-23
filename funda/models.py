@@ -59,6 +59,8 @@ lists = [
 
 class Woning(models.Model):
     url = models.CharField(max_length=255)
+    notes = models.TextField(blank=True)
+    interessant = models.BooleanField(default=False)
 
     # CharFields
     aangeboden_sinds = models.CharField(max_length=255)
