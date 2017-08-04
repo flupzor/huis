@@ -138,6 +138,10 @@ class WoningManager(models.Manager):
     def from_funda_woning(self, *funda_woning_list):
         for funda_woning in funda_woning_list:
             woning, created = self.get_or_create(url=funda_woning.URL)
+            if funda_woning.deleted:
+                woning.delete()
+                continue
+
             for django_field_name, funda_field_name in string_mapping:
                 setattr(woning, django_field_name, getattr(funda_woning, funda_field_name) or '')
             for django_field_name, funda_field_name in int_mapping:

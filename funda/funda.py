@@ -55,7 +55,15 @@ class Funda:
 
     def get_detail(self, guid):
         response = requests.get(self.get_detail_url(guid))
-        return response.json()
+        data = {'deleted': False}
+        if response.status_code == 404:
+            return {
+                'URL': response.request.url,
+                'deleted': True
+            }
+        data.update(response.json())
+        del data['Id']  # some other ID, that is not interesting for us.
+        return data
 
     def __iter__(self):
         for obj in self.objects:
